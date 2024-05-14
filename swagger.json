@@ -1,0 +1,3891 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/api/users/{id}": {
+            "get": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Get User",
+                "operationId": "getUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Update User Password",
+                "operationId": "updateUserPassword",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PutPasswordRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Delete User",
+                "operationId": "deleteUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Update User",
+                "operationId": "updateUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchUserRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users": {
+            "get": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Get all Users",
+                "operationId": "getUsers",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUsersResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Create User",
+                "operationId": "createUser",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostUserRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetUserResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/login": {
+            "post": {
+                "tags": [
+                    "User Controller"
+                ],
+                "summary": "Create authentication token",
+                "operationId": "createAuthenticationToken",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AuthenticationRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuthenticationResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks": {
+            "get": {
+                "tags": [
+                    "task-default-controller"
+                ],
+                "operationId": "getTasks",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTasksResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "task-default-controller"
+                ],
+                "operationId": "createTask",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostTaskRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTaskResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks/{id}/complete": {
+            "post": {
+                "tags": [
+                    "task-default-controller"
+                ],
+                "operationId": "completeTask",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/roles": {
+            "get": {
+                "tags": [
+                    "Role Controller"
+                ],
+                "summary": "Get all roles",
+                "operationId": "getRoles",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRolesResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Role Controller"
+                ],
+                "summary": "Create Role",
+                "operationId": "createRole",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostRoleRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/roles/{id}": {
+            "get": {
+                "tags": [
+                    "Role Controller"
+                ],
+                "summary": "Get Role of given id",
+                "operationId": "getRole",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Role Controller"
+                ],
+                "summary": "Update Role",
+                "operationId": "updateRole",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchRoleRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Role Controller"
+                ],
+                "summary": "Delete Role",
+                "operationId": "deleteRole",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/role-members": {
+            "get": {
+                "tags": [
+                    "Role Member Controller"
+                ],
+                "summary": "Get all Role Members",
+                "operationId": "getRoleMembers",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleMembersResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Role Member Controller"
+                ],
+                "summary": "Create Role Member",
+                "operationId": "createRoleMember",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostRoleMemberRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleMemberResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/organizations": {
+            "get": {
+                "tags": [
+                    "Organization Controller"
+                ],
+                "summary": "Get all Organizations",
+                "operationId": "getOrganizations",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetOrganizationsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Organization Controller"
+                ],
+                "summary": "Create Organization",
+                "operationId": "createOrganization",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostOrganizationRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetOrganizationResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/members": {
+            "get": {
+                "tags": [
+                    "Member Controller"
+                ],
+                "summary": "Get all Members",
+                "operationId": "getMembers",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMembersResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Member Controller"
+                ],
+                "summary": "Create Member",
+                "operationId": "createMember",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostMemberRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMemberResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/materials": {
+            "get": {
+                "tags": [
+                    "Material Controller"
+                ],
+                "summary": "Get all Materials",
+                "operationId": "getMaterials",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Material Controller"
+                ],
+                "summary": "Create Material",
+                "operationId": "createMaterial",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostMaterialRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/material-receivers": {
+            "get": {
+                "tags": [
+                    "Material Receiver Controller"
+                ],
+                "summary": "Get all Material Receivers",
+                "operationId": "getMaterialReceivers",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialReceiversResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Material Receiver Controller"
+                ],
+                "summary": "Create Material Receiver",
+                "operationId": "createMaterialReceiver",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostMaterialReceiverRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialReceiverResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/invitations": {
+            "post": {
+                "tags": [
+                    "Invitation Controller"
+                ],
+                "summary": "Send Invitation",
+                "operationId": "sendInvitation",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostInvitationRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetInvitationResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/invitations/reject": {
+            "post": {
+                "tags": [
+                    "Invitation Controller"
+                ],
+                "summary": "Reject Invitation",
+                "operationId": "rejectInvitation",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostInvitationRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/invitations/accept": {
+            "post": {
+                "tags": [
+                    "Invitation Controller"
+                ],
+                "summary": "Accept Invitation",
+                "operationId": "acceptInvitation",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AcceptInvitationRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMemberResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/assignees": {
+            "post": {
+                "tags": [
+                    "assignee-default-controller"
+                ],
+                "operationId": "assignMemberToTask",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostAssigneeRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAssigneeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "assignee-default-controller"
+                ],
+                "operationId": "deleteMemberFromTask",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostAssigneeRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/announcements": {
+            "get": {
+                "tags": [
+                    "Announcement Controller"
+                ],
+                "summary": "Get all Announcements",
+                "operationId": "getAnnouncements",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Announcement Controller"
+                ],
+                "summary": "Create Announcement",
+                "operationId": "createAnnouncement",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostAnnouncementRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/announcement-receivers": {
+            "get": {
+                "tags": [
+                    "Announcement Receiver Controller"
+                ],
+                "summary": "Get all Announcement Receivers",
+                "operationId": "getAnnouncementReceivers",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementReceiversResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Announcement Receiver Controller"
+                ],
+                "summary": "Create Announcement Receiver",
+                "operationId": "createAnnouncementReceiver",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PostAnnouncementReceiverRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementReceiverResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks/{id}": {
+            "get": {
+                "tags": [
+                    "task-default-controller"
+                ],
+                "operationId": "getTask",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTaskResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "task-default-controller"
+                ],
+                "operationId": "deleteTask",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "task-default-controller"
+                ],
+                "operationId": "updateTask",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchTaskRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTaskResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/organizations/{id}": {
+            "get": {
+                "tags": [
+                    "Organization Controller"
+                ],
+                "summary": "Get Organization",
+                "operationId": "getOrganization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetOrganizationResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Organization Controller"
+                ],
+                "summary": "Delete Organization",
+                "operationId": "deleteOrganization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Organization Controller"
+                ],
+                "summary": "Update Organization",
+                "operationId": "updateOrganization",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchOrganizationRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetOrganizationResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/members/{id}": {
+            "get": {
+                "tags": [
+                    "Member Controller"
+                ],
+                "summary": "Get all Members",
+                "operationId": "getMember",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Member id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMemberResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Member Controller"
+                ],
+                "summary": "Delete Member",
+                "operationId": "deleteMember",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Member id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Member Controller"
+                ],
+                "summary": "Update Member",
+                "operationId": "updateMember",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Member id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchMemberRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMemberResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/materials/{id}": {
+            "get": {
+                "tags": [
+                    "Material Controller"
+                ],
+                "summary": "Get Material of given id",
+                "operationId": "getMaterial",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Material Controller"
+                ],
+                "summary": "Delete Material",
+                "operationId": "deleteMaterial",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Material Controller"
+                ],
+                "summary": "Update Material",
+                "operationId": "updateMaterial",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchMaterialRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/material-receivers/{id}": {
+            "get": {
+                "tags": [
+                    "Material Receiver Controller"
+                ],
+                "summary": "Get Material Receiver of given id",
+                "operationId": "getMaterialReceiver",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material Receiver id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialReceiverResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Material Receiver Controller"
+                ],
+                "summary": "Delete Material Receiver",
+                "operationId": "deleteMaterialReceiver",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material Receiver id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Material Receiver Controller"
+                ],
+                "summary": "Update Material Receiver",
+                "operationId": "updateMaterialReceiver",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Material Receiver id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchMaterialReceiverRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialReceiverResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/announcements/{id}": {
+            "get": {
+                "tags": [
+                    "Announcement Controller"
+                ],
+                "summary": "Get Announcement of given id",
+                "operationId": "getAnnouncement",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Announcement id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Announcement Controller"
+                ],
+                "summary": "Delete Announcement",
+                "operationId": "deleteAnnouncement",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Announcement id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Announcement Controller"
+                ],
+                "summary": "Update Announcement",
+                "operationId": "updateAnnouncement",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Announcement id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchAnnouncementRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/announcement-receivers/{id}": {
+            "get": {
+                "tags": [
+                    "Announcement Receiver Controller"
+                ],
+                "summary": "Get Announcement Receiver of given id",
+                "operationId": "getAnnouncementReceiver",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Announcement Receiver id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementReceiverResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Announcement Receiver Controller"
+                ],
+                "summary": "Delete Announcement Receiver",
+                "operationId": "deleteAnnouncementReceiver",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Announcement Receiver id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            },
+            "patch": {
+                "tags": [
+                    "Announcement Receiver Controller"
+                ],
+                "summary": "Update Announcement Receiver",
+                "operationId": "updateAnnouncementReceiver",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Announcement Receiver id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PatchAnnouncementReceiverRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementReceiverResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Healthcheck",
+                "description": "Perform app healthcheck by executing all test endpoints",
+                "operationId": "healthCheck",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/updateUserTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Update User Test",
+                "operationId": "updateUserTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/updateUserPasswordTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Update User Password Test",
+                "operationId": "updateUserPasswordTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/updateOrganizationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Update Organization Test",
+                "operationId": "updateOrganizationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/updateMemberTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Update Member Test",
+                "operationId": "updateMemberTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/sendInvitationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Send Invitation Test",
+                "operationId": "sendInvitationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/rejectInvitationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Reject Invitation Test",
+                "operationId": "rejectInvitationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/loginTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Login Test",
+                "operationId": "loginTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getUsersTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get all Users Test",
+                "operationId": "getUsersTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getUserTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get User Test",
+                "operationId": "getUserTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getOrganizationsTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get all Organizations Test",
+                "operationId": "getOrganizationsTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getOrganizationsByUserTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get Organizations By User Test",
+                "operationId": "getOrganizationsByUserTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getOrganizationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get Organization Test",
+                "operationId": "getOrganizationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getMembersTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get all Members Test",
+                "operationId": "getMembersTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getMembersByOrganizationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get Members By Organization Test",
+                "operationId": "getMembersByOrganizationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getMemberTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get Member Test",
+                "operationId": "getMemberTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getInvitationsByUserTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get Invitations By User Test",
+                "operationId": "getInvitationsByUserTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getInvitationsByOrganizationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get Invitations By Organization Test",
+                "operationId": "getInvitationsByOrganizationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/getInvitationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Get Invitation Test",
+                "operationId": "getInvitationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/deleteUserTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Delete User Test",
+                "operationId": "deleteUserTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/deleteOrganizationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Delete Organization Test",
+                "operationId": "deleteOrganizationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/deleteMemberTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Delete Member Test",
+                "operationId": "deleteMemberTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/deleteInvitationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Delete Invitation Test",
+                "operationId": "deleteInvitationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/createUserTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Create User Test",
+                "operationId": "createUserTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/createOrganizationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Create Organization Test",
+                "operationId": "createOrganizationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/createMemberTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Create Member Test",
+                "operationId": "createMemberTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/healthcheck/acceptInvitationTest": {
+            "get": {
+                "tags": [
+                    "Smoke Tests Controller"
+                ],
+                "summary": "Accept Invitation Test",
+                "operationId": "acceptInvitationTest",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/{userId}/invitations": {
+            "get": {
+                "tags": [
+                    "Invitation Controller"
+                ],
+                "summary": "Get Invitation By User",
+                "operationId": "getInvitationsByUser",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetInvitationsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks/{taskId}/assignees": {
+            "get": {
+                "tags": [
+                    "assignee-default-controller"
+                ],
+                "operationId": "getAssigneesByTask",
+                "parameters": [
+                    {
+                        "name": "taskId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAssigneesResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks/organizations/{organizationId}": {
+            "get": {
+                "tags": [
+                    "task-default-controller"
+                ],
+                "operationId": "getTasksByOrganization",
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTasksResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/tasks/members/{memberId}": {
+            "get": {
+                "tags": [
+                    "task-default-controller"
+                ],
+                "operationId": "getTasksByMember",
+                "parameters": [
+                    {
+                        "name": "memberId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetTasksResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/roles/{roleId}/role-members": {
+            "get": {
+                "tags": [
+                    "Role Member Controller"
+                ],
+                "summary": "Get Role Members By Role",
+                "operationId": "getRoleMembersByRole",
+                "parameters": [
+                    {
+                        "name": "roleId",
+                        "in": "path",
+                        "description": "Role id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleMembersResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/role-members/{id}": {
+            "get": {
+                "tags": [
+                    "Role Member Controller"
+                ],
+                "summary": "Get Role Member of given id",
+                "operationId": "getRoleMember",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role Member id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleMemberResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Role Member Controller"
+                ],
+                "summary": "Delete Role Member",
+                "operationId": "deleteRoleMember",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Role Member id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/organizations/{organizationId}/roles": {
+            "get": {
+                "tags": [
+                    "Role Controller"
+                ],
+                "summary": "Get Roles By Organization",
+                "operationId": "getRolesByOrganization",
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRolesResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/organizations/{organizationId}/members": {
+            "get": {
+                "tags": [
+                    "Member Controller"
+                ],
+                "summary": "Get Members By Organization",
+                "operationId": "getMembersByOrganization",
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMembersResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/organizations/{organizationId}/materials": {
+            "get": {
+                "tags": [
+                    "Material Controller"
+                ],
+                "summary": "Get Materials By Organization",
+                "operationId": "getMaterialsByOrganization",
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/organizations/{organizationId}/invitations": {
+            "get": {
+                "tags": [
+                    "Invitation Controller"
+                ],
+                "summary": "Get Invitations By Organization",
+                "operationId": "getInvitationsByOrganization",
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetInvitationsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/organizations/{organizationId}/announcements": {
+            "get": {
+                "tags": [
+                    "Announcement Controller"
+                ],
+                "summary": "Get Announcements By Organization",
+                "operationId": "getAnnouncementsByOrganization",
+                "parameters": [
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/organizations/users/{userId}": {
+            "get": {
+                "tags": [
+                    "Organization Controller"
+                ],
+                "summary": "Get Organizations By User",
+                "operationId": "getOrganizationsByUser",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetOrganizationsResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/members/{memberId}/role-members": {
+            "get": {
+                "tags": [
+                    "Role Member Controller"
+                ],
+                "summary": "Get Role Members By Member",
+                "operationId": "getRoleMembersByMember",
+                "parameters": [
+                    {
+                        "name": "memberId",
+                        "in": "path",
+                        "description": "Member id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetRoleMembersResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/members/{memberId}/material-receivers": {
+            "get": {
+                "tags": [
+                    "Material Receiver Controller"
+                ],
+                "summary": "Get Material Receivers By Member",
+                "operationId": "getMaterialReceiversByMember",
+                "parameters": [
+                    {
+                        "name": "memberId",
+                        "in": "path",
+                        "description": "Member id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialReceiversResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/members/{memberId}/announcement-receivers": {
+            "get": {
+                "tags": [
+                    "Announcement Receiver Controller"
+                ],
+                "summary": "Get Announcement Receivers By Member",
+                "operationId": "getAnnouncementReceiversByMember",
+                "parameters": [
+                    {
+                        "name": "memberId",
+                        "in": "path",
+                        "description": "Member id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementReceiversResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/materials/{materialId}/material-receivers": {
+            "get": {
+                "tags": [
+                    "Material Receiver Controller"
+                ],
+                "summary": "Get Material Receivers By Material",
+                "operationId": "getMaterialReceiversByMaterial",
+                "parameters": [
+                    {
+                        "name": "materialId",
+                        "in": "path",
+                        "description": "Material id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetMaterialReceiversResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/invitations/{userId}/{organizationId}": {
+            "get": {
+                "tags": [
+                    "Invitation Controller"
+                ],
+                "summary": "Get Invitation",
+                "operationId": "getInvitation",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetInvitationResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Invitation Controller"
+                ],
+                "summary": "Delete Invitation",
+                "operationId": "deleteInvitation",
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "User id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "organizationId",
+                        "in": "path",
+                        "description": "Organization id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content"
+                    }
+                }
+            }
+        },
+        "/api/assignees/{memberId}/{taskId}": {
+            "get": {
+                "tags": [
+                    "assignee-default-controller"
+                ],
+                "operationId": "getAssignee",
+                "parameters": [
+                    {
+                        "name": "memberId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "taskId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAssigneeResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/announcements/{announcementId}/announcement-receivers": {
+            "get": {
+                "tags": [
+                    "Announcement Receiver Controller"
+                ],
+                "summary": "Get Announcement Receivers By Announcement",
+                "operationId": "getAnnouncementReceiversByAnnouncement",
+                "parameters": [
+                    {
+                        "name": "announcementId",
+                        "in": "path",
+                        "description": "Announcement id value",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/GetAnnouncementReceiversResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "PutPasswordRequest": {
+                "type": "object",
+                "properties": {
+                    "password": {
+                        "type": "string",
+                        "description": "User password value"
+                    }
+                },
+                "description": "putPasswordRequest DTO"
+            },
+            "PostUserRequest": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "User email value"
+                    },
+                    "firstname": {
+                        "type": "string",
+                        "description": "User firstname value"
+                    },
+                    "lastname": {
+                        "type": "string",
+                        "description": "User lastname value"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "User password value"
+                    }
+                },
+                "description": "PostUserRequest DTO"
+            },
+            "GetUserResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "User id value"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "User email value"
+                    },
+                    "firstname": {
+                        "type": "string",
+                        "description": "User firstname value"
+                    },
+                    "lastname": {
+                        "type": "string",
+                        "description": "User lastname value"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "User phone number value"
+                    },
+                    "birthDate": {
+                        "type": "string",
+                        "description": "User birth date value",
+                        "format": "date"
+                    },
+                    "image": {
+                        "type": "array",
+                        "description": "User image",
+                        "items": {
+                            "type": "string",
+                            "description": "User image",
+                            "format": "byte"
+                        }
+                    }
+                },
+                "description": "GetUserResponse DTO"
+            },
+            "AuthenticationRequest": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "User email value"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "User password value"
+                    }
+                },
+                "description": "AuthenticationRequest DTO"
+            },
+            "AuthenticationResponse": {
+                "type": "object",
+                "properties": {
+                    "jwt": {
+                        "type": "string",
+                        "description": "JWT token value"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/GetUserResponse"
+                    }
+                },
+                "description": "AuthenticationResponse DTO"
+            },
+            "PostTaskRequest": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "deadLine": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "isImportant": {
+                        "type": "boolean"
+                    },
+                    "organization": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetTaskResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "dateOfCreation": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "dateOfCompletion": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "deadLine": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "isImportant": {
+                        "type": "boolean"
+                    },
+                    "isDone": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "PostRoleRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Role name"
+                    },
+                    "organization": {
+                        "type": "integer",
+                        "description": "Organization id value"
+                    }
+                },
+                "description": "PostRoleRequest DTO"
+            },
+            "GetRoleResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Role id value"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Role name"
+                    },
+                    "externalId": {
+                        "type": "string",
+                        "description": "Role external Id"
+                    },
+                    "organization": {
+                        "$ref": "#/components/schemas/Organization"
+                    }
+                },
+                "description": "GetRoleResponse DTO"
+            },
+            "Organization": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Organization id value"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Organization name"
+                    }
+                },
+                "description": "Organization class value"
+            },
+            "PatchRoleRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Role name"
+                    }
+                },
+                "description": "PatchRoleRequest DTO"
+            },
+            "PostRoleMemberRequest": {
+                "type": "object",
+                "properties": {
+                    "member": {
+                        "type": "integer",
+                        "description": "Member id value"
+                    },
+                    "role": {
+                        "type": "integer",
+                        "description": "Role id value"
+                    }
+                },
+                "description": "PostRoleMemberRequest DTO"
+            },
+            "GetRoleMemberResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Role member id value"
+                    },
+                    "member": {
+                        "$ref": "#/components/schemas/Member"
+                    },
+                    "role": {
+                        "$ref": "#/components/schemas/Role"
+                    }
+                },
+                "description": "GetRoleMemberResponse DTO"
+            },
+            "Member": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Member id value"
+                    },
+                    "pseudonym": {
+                        "type": "string",
+                        "description": "Member pseudonym"
+                    }
+                },
+                "description": "Member class value"
+            },
+            "Role": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Role id value"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Role name"
+                    }
+                },
+                "description": "Role class value"
+            },
+            "PostOrganizationRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Organization name value"
+                    },
+                    "banner": {
+                        "type": "array",
+                        "description": "Organization profile banner",
+                        "items": {
+                            "type": "string",
+                            "description": "Organization profile banner",
+                            "format": "byte"
+                        }
+                    },
+                    "user": {
+                        "type": "integer",
+                        "description": "User id value"
+                    }
+                },
+                "description": "PostOrganizationRequest DTO"
+            },
+            "GetOrganizationResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Organization id value"
+                    },
+                    "dateOfCreation": {
+                        "type": "string",
+                        "description": "Organization date of creation value",
+                        "format": "date-time"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Organization name value"
+                    },
+                    "banner": {
+                        "type": "array",
+                        "description": "Organization profile banner",
+                        "items": {
+                            "type": "string",
+                            "description": "Organization profile banner",
+                            "format": "byte"
+                        }
+                    }
+                },
+                "description": "GetOrganizationResponse DTO"
+            },
+            "PostMemberRequest": {
+                "type": "object",
+                "properties": {
+                    "pseudonym": {
+                        "type": "string",
+                        "description": "Member pseudonym value"
+                    },
+                    "organization": {
+                        "type": "integer",
+                        "description": "Organization id value"
+                    },
+                    "user": {
+                        "type": "integer",
+                        "description": "User id value"
+                    }
+                },
+                "description": "PostMemberRequest DTO"
+            },
+            "GetMemberResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Member id value"
+                    },
+                    "pseudonym": {
+                        "type": "string",
+                        "description": "Member pseudonym value"
+                    },
+                    "isStillMember": {
+                        "type": "boolean",
+                        "description": "Member isStillMember value"
+                    },
+                    "organization": {
+                        "$ref": "#/components/schemas/Organization"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    }
+                },
+                "description": "GetMemberResponse DTO"
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "User id  value"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "User email  value"
+                    }
+                },
+                "description": "User class value"
+            },
+            "PostMaterialRequest": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Material title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Material description"
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "description": "Material content type"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "description": "Material size",
+                        "format": "int64"
+                    },
+                    "content": {
+                        "type": "array",
+                        "description": "Material content",
+                        "items": {
+                            "type": "string",
+                            "description": "Material content",
+                            "format": "byte"
+                        }
+                    },
+                    "dateOfCreation": {
+                        "type": "string",
+                        "description": "Material date of creation",
+                        "format": "date-time"
+                    },
+                    "organization": {
+                        "type": "integer",
+                        "description": "Material organization id value"
+                    }
+                },
+                "description": "PostMaterialRequest DTO"
+            },
+            "GetMaterialResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Material id value"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Material title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Material description"
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "description": "Material content type"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "description": "Material size",
+                        "format": "int64"
+                    },
+                    "dateOfCreation": {
+                        "type": "string",
+                        "description": "Material date of creation",
+                        "format": "date-time"
+                    },
+                    "content": {
+                        "type": "array",
+                        "description": "Material content",
+                        "items": {
+                            "type": "string",
+                            "description": "Material content",
+                            "format": "byte"
+                        }
+                    },
+                    "organization": {
+                        "$ref": "#/components/schemas/Organization"
+                    }
+                },
+                "description": "GetMaterialResponse DTO"
+            },
+            "PostMaterialReceiverRequest": {
+                "type": "object",
+                "properties": {
+                    "member": {
+                        "type": "integer",
+                        "description": "Member id value"
+                    },
+                    "material": {
+                        "type": "integer",
+                        "description": "Material id value"
+                    }
+                },
+                "description": "PostMaterialReceiverRequest DTO"
+            },
+            "GetMaterialReceiverResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Material receiver id value"
+                    },
+                    "member": {
+                        "$ref": "#/components/schemas/Member"
+                    },
+                    "material": {
+                        "$ref": "#/components/schemas/Material"
+                    }
+                },
+                "description": "GetMaterialReceiverResponse DTO"
+            },
+            "Material": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Material id value"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Material title"
+                    }
+                },
+                "description": "Material class value"
+            },
+            "PostInvitationRequest": {
+                "type": "object",
+                "properties": {
+                    "organization": {
+                        "type": "integer",
+                        "description": "Organization id value"
+                    },
+                    "user": {
+                        "type": "integer",
+                        "description": "User id value"
+                    }
+                },
+                "description": "PostInvitationRequest DTO"
+            },
+            "GetInvitationResponse": {
+                "type": "object",
+                "properties": {
+                    "isActive": {
+                        "type": "boolean",
+                        "description": "Invitation isActive value"
+                    },
+                    "dateOfCreation": {
+                        "type": "string",
+                        "description": "Invitation date of creation value",
+                        "format": "date-time"
+                    },
+                    "organization": {
+                        "$ref": "#/components/schemas/Organization"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/User"
+                    }
+                },
+                "description": "GetInvitationResponse DTO"
+            },
+            "AcceptInvitationRequest": {
+                "type": "object",
+                "properties": {
+                    "organization": {
+                        "type": "integer",
+                        "description": "Organization id value"
+                    },
+                    "user": {
+                        "type": "integer",
+                        "description": "User id value"
+                    },
+                    "pseudonym": {
+                        "type": "string",
+                        "description": "Member pseudonym value"
+                    }
+                },
+                "description": "AcceptInvitationRequest DTO"
+            },
+            "PostAssigneeRequest": {
+                "type": "object",
+                "properties": {
+                    "member": {
+                        "type": "integer"
+                    },
+                    "task": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetAssigneeResponse": {
+                "type": "object",
+                "properties": {
+                    "task": {
+                        "$ref": "#/components/schemas/Task"
+                    },
+                    "member": {
+                        "$ref": "#/components/schemas/Member"
+                    }
+                }
+            },
+            "Task": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "title": {
+                        "type": "string"
+                    }
+                }
+            },
+            "PostAnnouncementRequest": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Announcement title value"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Announcement content value"
+                    },
+                    "dateOfExpiration": {
+                        "type": "string",
+                        "description": "Announcement date of expiration",
+                        "format": "date-time"
+                    },
+                    "organization": {
+                        "type": "integer",
+                        "description": "Organization id value"
+                    }
+                },
+                "description": "PostAnnouncementRequest DTO"
+            },
+            "GetAnnouncementResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Announcement id value"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Announcement title"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Announcement content"
+                    },
+                    "dateOfExpiration": {
+                        "type": "string",
+                        "description": "Announcement date of expiration",
+                        "format": "date-time"
+                    },
+                    "organization": {
+                        "$ref": "#/components/schemas/Organization"
+                    }
+                },
+                "description": "GetAnnouncementResponse DTO"
+            },
+            "PostAnnouncementReceiverRequest": {
+                "type": "object",
+                "properties": {
+                    "member": {
+                        "type": "integer",
+                        "description": "Member id value"
+                    },
+                    "announcement": {
+                        "type": "integer",
+                        "description": "Announcement id value"
+                    }
+                },
+                "description": "PostAnnouncementReceiverRequest DTO"
+            },
+            "Announcement": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Announcement id value"
+                    },
+                    "title": {
+                        "type": "string",
+                        "description": "Announcement title"
+                    }
+                },
+                "description": "Announcement class value"
+            },
+            "GetAnnouncementReceiverResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Announcement receiver id value"
+                    },
+                    "member": {
+                        "$ref": "#/components/schemas/Member"
+                    },
+                    "announcement": {
+                        "$ref": "#/components/schemas/Announcement"
+                    }
+                },
+                "description": "GetAnnouncementReceiverResponse DTO"
+            },
+            "PatchUserRequest": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string",
+                        "description": "User email value"
+                    },
+                    "firstname": {
+                        "type": "string",
+                        "description": "User firstname value"
+                    },
+                    "lastname": {
+                        "type": "string",
+                        "description": "User lastname value"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "User phone number value"
+                    },
+                    "birthDate": {
+                        "type": "string",
+                        "description": "User birth date value",
+                        "format": "date"
+                    },
+                    "image": {
+                        "type": "array",
+                        "description": "User image",
+                        "items": {
+                            "type": "string",
+                            "description": "User image",
+                            "format": "byte"
+                        }
+                    }
+                },
+                "description": "PatchUserRequest DTO"
+            },
+            "PatchTaskRequest": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "deadLine": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "isImportant": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "PatchOrganizationRequest": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Organization name value"
+                    },
+                    "banner": {
+                        "type": "array",
+                        "description": "Organization profile banner",
+                        "items": {
+                            "type": "string",
+                            "description": "Organization profile banner",
+                            "format": "byte"
+                        }
+                    }
+                },
+                "description": "PatchOrganizationRequest DTO"
+            },
+            "PatchMemberRequest": {
+                "type": "object",
+                "properties": {
+                    "pseudonym": {
+                        "type": "string",
+                        "description": "Member pseudonym value"
+                    }
+                },
+                "description": "PatchMemberRequest DTO"
+            },
+            "PatchMaterialRequest": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Material title"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Material description"
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "description": "Material content type"
+                    },
+                    "size": {
+                        "type": "integer",
+                        "description": "Material size",
+                        "format": "int64"
+                    },
+                    "content": {
+                        "type": "array",
+                        "description": "Material content",
+                        "items": {
+                            "type": "string",
+                            "description": "Material content",
+                            "format": "byte"
+                        }
+                    }
+                },
+                "description": "PatchMaterialRequest DTO"
+            },
+            "PatchMaterialReceiverRequest": {
+                "type": "object",
+                "description": "PatchMaterialReceiverRequest DTO"
+            },
+            "PatchAnnouncementRequest": {
+                "type": "object",
+                "properties": {
+                    "title": {
+                        "type": "string",
+                        "description": "Announcement title"
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Announcement title"
+                    },
+                    "dateOfExpiration": {
+                        "type": "string",
+                        "description": "Announcement date of expiration",
+                        "format": "date-time"
+                    }
+                },
+                "description": "PatchAnnouncementRequest DTO"
+            },
+            "PatchAnnouncementReceiverRequest": {
+                "type": "object",
+                "description": "PatchAnnouncementReceiverRequest DTO"
+            },
+            "GetUsersResponse": {
+                "type": "object",
+                "properties": {
+                    "users": {
+                        "type": "array",
+                        "description": "User list",
+                        "items": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    }
+                },
+                "description": "GetUsersResponse DTO"
+            },
+            "GetInvitationsResponse": {
+                "type": "object",
+                "properties": {
+                    "invitations": {
+                        "type": "array",
+                        "description": "Invitation list",
+                        "items": {
+                            "$ref": "#/components/schemas/Invitation"
+                        }
+                    }
+                },
+                "description": "GetInvitationsResponse DTO"
+            },
+            "Invitation": {
+                "type": "object",
+                "properties": {
+                    "userId": {
+                        "type": "integer",
+                        "description": "User id value"
+                    },
+                    "organizationId": {
+                        "type": "integer",
+                        "description": "Organization id value"
+                    },
+                    "organizationName": {
+                        "type": "string",
+                        "description": "Organization name value"
+                    }
+                },
+                "description": "Invitation list"
+            },
+            "GetTasksResponse": {
+                "type": "object",
+                "properties": {
+                    "tasks": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Task"
+                        }
+                    }
+                }
+            },
+            "Assignee": {
+                "type": "object",
+                "properties": {
+                    "memberId": {
+                        "type": "integer"
+                    },
+                    "taskId": {
+                        "type": "integer"
+                    }
+                }
+            },
+            "GetAssigneesResponse": {
+                "type": "object",
+                "properties": {
+                    "assignees": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Assignee"
+                        }
+                    }
+                }
+            },
+            "GetRolesResponse": {
+                "type": "object",
+                "properties": {
+                    "roles": {
+                        "type": "array",
+                        "description": "Role list",
+                        "items": {
+                            "$ref": "#/components/schemas/Role"
+                        }
+                    }
+                },
+                "description": "GetRolesResponse DTO"
+            },
+            "GetRoleMembersResponse": {
+                "type": "object",
+                "properties": {
+                    "roleMembers": {
+                        "type": "array",
+                        "description": "Role member list",
+                        "items": {
+                            "$ref": "#/components/schemas/RoleMember"
+                        }
+                    }
+                },
+                "description": "GetRoleMembersResponse DTO"
+            },
+            "RoleMember": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Role member id value"
+                    },
+                    "memberId": {
+                        "type": "integer",
+                        "description": "Member id value"
+                    },
+                    "roleId": {
+                        "type": "integer",
+                        "description": "Role id value"
+                    }
+                },
+                "description": "Role member list"
+            },
+            "GetOrganizationsResponse": {
+                "type": "object",
+                "properties": {
+                    "organizations": {
+                        "type": "array",
+                        "description": "Organization list",
+                        "items": {
+                            "$ref": "#/components/schemas/Organization"
+                        }
+                    }
+                },
+                "description": "GetOrganizationsResponse DTO"
+            },
+            "GetMembersResponse": {
+                "type": "object",
+                "properties": {
+                    "members": {
+                        "type": "array",
+                        "description": "Member list",
+                        "items": {
+                            "$ref": "#/components/schemas/Member"
+                        }
+                    }
+                },
+                "description": "GetMembersResponse DTO"
+            },
+            "GetMaterialsResponse": {
+                "type": "object",
+                "properties": {
+                    "materials": {
+                        "type": "array",
+                        "description": "Material list",
+                        "items": {
+                            "$ref": "#/components/schemas/Material"
+                        }
+                    }
+                },
+                "description": "GetMaterialsResponse DTO"
+            },
+            "GetAnnouncementsResponse": {
+                "type": "object",
+                "properties": {
+                    "announcements": {
+                        "type": "array",
+                        "description": "Announcement list",
+                        "items": {
+                            "$ref": "#/components/schemas/Announcement"
+                        }
+                    }
+                },
+                "description": "GetAnnouncementsResponse DTO"
+            },
+            "GetMaterialReceiversResponse": {
+                "type": "object",
+                "properties": {
+                    "materialReceivers": {
+                        "type": "array",
+                        "description": "Material receiver list",
+                        "items": {
+                            "$ref": "#/components/schemas/MaterialReceiver"
+                        }
+                    }
+                },
+                "description": "GetMaterialReceiversResponse DTO"
+            },
+            "MaterialReceiver": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Material receiver id value"
+                    },
+                    "memberId": {
+                        "type": "integer",
+                        "description": "Member id value"
+                    },
+                    "materialId": {
+                        "type": "integer",
+                        "description": "Material id value"
+                    }
+                },
+                "description": "Material receiver list"
+            },
+            "AnnouncementReceiver": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "description": "Announcement receiver id value"
+                    },
+                    "memberId": {
+                        "type": "integer",
+                        "description": "Member id value"
+                    },
+                    "announcementId": {
+                        "type": "integer",
+                        "description": "Announcement id value"
+                    }
+                },
+                "description": "Announcement receiver list"
+            },
+            "GetAnnouncementReceiversResponse": {
+                "type": "object",
+                "properties": {
+                    "announcementReceivers": {
+                        "type": "array",
+                        "description": "Announcement receiver list",
+                        "items": {
+                            "$ref": "#/components/schemas/AnnouncementReceiver"
+                        }
+                    }
+                },
+                "description": "GetAnnouncementReceiversResponse DTO"
+            }
+        }
+    }
+}
