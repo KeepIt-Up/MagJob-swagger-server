@@ -4,7 +4,7 @@ import time
 import requests
 
 SWAGGER_URL = os.environ.get('SWAGGER_URL', 'http://localhost:8080/v3/api-docs')
-SWAGGER_JSON_PATH = os.environ.get('SWAGGER_JSON_PATH', './MagJob-swagger-server/swagger.json')
+SWAGGER_JSON_PATH = 'swagger.json'
 WAIT_TIME = int(os.environ.get('WAIT_TIME', 120))
 
 
