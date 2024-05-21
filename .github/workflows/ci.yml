@@ -15,6 +15,5 @@ jobs:
         with:
             image: keepitup2023/magjob-swagger-server-handler:latest
             registry: docker.io
-            dockerfile: Dockerfile
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
